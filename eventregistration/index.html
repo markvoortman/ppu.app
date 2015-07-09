@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>PointEvent - What's happening at Point Park?</title>
+	<link href="pointevent.css" rel="stylesheet" type="text/css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
+	<link rel="stylesheet" href="animate.min.css">
+	<script src="pointevent.js"></script>
+</head>
+<body>
+<header>
+	<div id="ppulogo">
+		<h1>Point</h1>
+		<h1>Event</h1>
+	</div>
+</header>
+
+<div id="newevent">
+	<h2 id="create">Create a New Event</h2>
+	<div id="eventcontain">
+		<form id="eventform">
+			<div data-role="fieldcontain">
+				<label>Event Name:</label>
+				<input name="event" id="event" onfocus="showhelp('#eventHelp');" onblur="hidehelp('#eventHelp');"></input>
+			</div>
+			<div id="eventHelp" class="ui-body ui-body-a ui-corner-all">
+				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fr</p>
+			</div>
+			<div data-role="fieldcontain">
+				<label>Organization:</label>
+				<input name="organization" id="org" onfocus="showhelp('#orgHelp');" onblur="hidehelp('#orgHelp');"></input>
+			</div>
+			<div id="orgHelp" class="ui-body ui-body-a ui-corner-all">
+				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fr</p>
+			</div>
+			<div data-role="fieldcontain">
+				<label>Organizer/Advisor:</label>
+				<input name="organizer" id="organizer"></input>
+			</div>	
+			<div data-role="fieldcontain">
+				<label>Email Address:</label>
+				<input name="email" id="email"></input>
+			</div>	
+			<div data-role="fieldcontain">
+				<label>Phone Number:</label>
+				<input name="phone" id="phone"></input>
+			</div>	
+			<div data-role="fieldcontain">
+				<label>Extension:</label>
+				<input name="extension" id="extension"></input>
+			</div>	
+			<div data-role="fieldcontain">
+				<label>Event Description:</label>
+				<textarea name="description" id="desc" maxlength="500" style="height: 200px !important; resize: none;"></textarea>
+			</div>	
+			<div data-role="fieldcontain">
+				<label>Event Date:</label>
+				<input type="date" id="date" name="date"></input>
+			</div>	
+			<div data-role="fieldcontain">
+				<label>Event Time:</label>
+				<input type="time" id="time" name="time"></input>
+			</div>	
+			<div data-role="fieldcontain">
+				<label>On or Off Campus?:</label>
+				<fieldset data-role="controlgroup">
+				    <label for="oncampus">On Campus</label>
+				    <input type="radio" name="onoff" id="oncampus" value="on">
+				    <label for="offcampus">Off Campus</label>
+				    <input type="radio" name="onoff" id="offcampus" value="off">
+				</fieldset>
+			</div>
+			<div data-role="fieldcontain" id="onBuilding">
+				<label>Building:</label>
+			   <select name="onbuilding" id="building">
+			   		<option value="empty">&nbsp</option>
+			        <option value="westpenn">West Penn Building (WP)</option>
+			        <option value="academic">Academic Hall (AH)</option>
+			        <option value="lawrence">Lawrence Hall (LH)</option>
+			        <option value="thayer">Thayer Hall (TH)</option>
+			        <option value="uc">University Center (UC)</option>			   
+			        <option value="park">Village Park</option>
+			        <option value="playhouse">Pittsburgh Playhouse</option>			   
+
+			    </select>
+			</div>	
+			<div data-role="fieldcontain" id="onRoom">
+				<label>Room:</label>
+				<input name="onroom" id="room"></input>
+			</div>
+			<div id="onCampusHelp" class="ui-body ui-body-a ui-corner-all">
+				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fr</p>
+			</div>
+			<div data-role="fieldcontain" id="offName">
+				<label>Location Name:</label>
+				<input name="offname"></input>
+			</div>	
+			<div data-role="fieldcontain" id="address1">
+				<label>Address 1:</label>
+				<input name="address1" id="address1input"></input>
+			</div>	
+			<div data-role="fieldcontain" id="address2">
+				<label>Address 2:</label>
+				<input name="address2" id="address2input"></input>
+			</div>	
+			<div data-role="fieldcontain" id="city">
+				<label>City:</label>
+				<input name="city" id="cityinput"></input>
+			</div>	
+			<div data-role="fieldcontain" id="state">
+				<label>State:</label>
+				<input name="state" id="stateinput"></input>
+			</div>	
+			<div data-role="fieldcontain" id="zip">
+				<label>Zipcode:</label>
+				<input name="zip" id="zipinput"></input>
+			</div>	
+			<div id="offCampusHelp" class="ui-body ui-body-a ui-corner-all">
+				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fr</p>
+			</div>
+			<div data-role="fieldcontain">
+				<label>Attendence Limit?:</label>
+				<fieldset data-role="controlgroup">
+				    <label for="attendyes">Yes</label>
+				    <input type="radio" name="attend" id="attendyes" value="on"">
+				    <label for="attendno">No</label>
+				    <input type="radio" name="attend" id="attendno" value="off">
+				</fieldset>
+			</div>
+			<div data-role="fieldcontain" id="limit">
+				<label for="slider">Attendence Limit:</label>
+				<input type="range" name="slider" id="slider" value="0" min="10" max="300">
+			</div>
+			<div id="attendHelp" class="ui-body ui-body-a ui-corner-all">
+				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fr</p>
+			</div>
+			<div data-role="fieldcontain">
+				<label for="file">Upload Pictures:</label>
+				<input type="file" name="file" id="file" value="">
+			</div>
+			<button type="submit" onclick="newevent();">Submit Event</button>		
+			<button>Discard Event</button>
+		</form>
+	</div>
+</div>
+</body>
+</html>	
+
