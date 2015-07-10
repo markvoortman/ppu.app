@@ -1,0 +1,91 @@
+@font-face {
+	font-family: ITC;
+	src: url('itc-symbol-lt-black.ttf');
+}
+
+@font-face {
+	font-family: AGB;
+	src: url('akzidenz-grotesk-bold.ttf');
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	//border: 1px solid red;
+}
+
+#newevent {
+	float: left;
+	width: 100%;
+	background-color: #f4911e;	
+	height: auto;
+}
+
+header {
+	float: left;
+	width: 100%;
+	height: auto;
+	background-color: #63831D;
+}
+
+#ppulogo {
+	float: left;
+	height: 100%;
+	margin-left: 10px;
+	margin-right: 5%;
+}
+
+#ppulogo h1:first-of-type {
+	float: left;
+	font-size: 3em;
+	color: #476611;
+	font-family: "ITC", sans-serif;
+	text-shadow: 0px 0px;
+}
+
+#ppulogo h1 {
+	float: left;
+	font-size: 3em;
+	color: #fdb813;
+	font-family: "ITC", sans-serif;
+	text-shadow: 0px 0px;
+}
+
+#eventcontain {
+	margin-left: 10%;
+	margin-right: 10%;
+}
+
+#create {
+	float: left;
+	background-color: #008fc5;
+	width: 100%;
+	height: auto;
+	padding-left: 10px;
+	margin-right: 5%;
+	font-family: "AGB";
+	color: white;
+	text-shadow: .5px .5px black;
+}
+
+#eventform {
+	float: left;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	background-color: #FFE6C9;
+	width: 90%;
+	padding-left: 5%;
+	padding-right: 5%;
+	padding-top: 1%;
+	padding-bottom: 1%;
+	margin-bottom: 50px;
+}
+
+label {
+	font-family: "AGB";
+}
+
+.aside .ui-input-text {
+	float: left;
+    display:inline-block;
+}
