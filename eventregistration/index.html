@@ -7,8 +7,9 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
-	<link rel="stylesheet" href="animate.min.css">
+	<link rel="stylesheet" href="animate.css">
 	<script src="pointevent.js"></script>
+	<script src="unslider.min.js"></script>
 </head>
 <body>
 <header>
@@ -17,65 +18,96 @@
 		<h1>Event</h1>
 	</div>
 </header>
-
-<div id="newevent">
-	<h2 id="create">Create a New Event</h2>
+	<h2 id="create">Create a New Event</h2>	
+	<div id="newevent">
 	<div id="eventcontain">
-		<form id="eventform">
+	<div class="banner">
+	    <ul>
+	        <!--  <li><img src="skyline.jpg" style="height: 300px; max-width: 100%;"></li>-->
+	        <li style="background-image: url(skyline.jpg); background-size: cover; background-position: center; background-repeat: no-repeat; height: 300px; max-width: 100%;"></li>
+	        <li style="background-image: url(class.jpg); background-size: cover; background-position: center; background-repeat: no-repeat; height: 300px; max-width: 100%;"></li> 
+	        <li style="background-image: url(village park.jpg); background-size: cover; background-position: center; background-repeat: no-repeat; height: 300px; max-width: 100%;"></li> 	     
+	        <li><img src="village park.jpg" style="height: 300px; max-width: 100%;"></li>
+	    </ul>
+	</div>	
+	
+	<form id="eventform">
 			<div data-role="fieldcontain">
 				<label>Event Name:</label>
-				<input name="event" id="event" onfocus="showhelp('#eventHelp');" onblur="hidehelp('#eventHelp');"></input>
+				<input name="event" id="event" onfocus="checkhelp('#eventHelp'); showhelp('#eventHelp');" onblur="hidehelp('#eventHelp');"></input>
 			</div>
 			<div id="eventHelp" class="ui-body ui-body-a ui-corner-all">
+				<p id="error"></p>
 				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fr</p>
 			</div>
 			<div data-role="fieldcontain">
 				<label>Organization:</label>
-				<input name="organization" id="org" onfocus="showhelp('#orgHelp');" onblur="hidehelp('#orgHelp');"></input>
+				<input name="organization" id="org" onfocus="checkhelp('#orgHelp'); showhelp('#orgHelp');" onblur="hidehelp('#orgHelp');"></input>
 			</div>
 			<div id="orgHelp" class="ui-body ui-body-a ui-corner-all">
+				<p id="error"></p>
 				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fr</p>
 			</div>
 			<div data-role="fieldcontain">
 				<label>Organizer/Advisor:</label>
-				<input name="organizer" id="organizer"></input>
+				<input name="organizer" id="organizer" onfocus="checkhelp('#advisorHelp'); showhelp('#advisorHelp');" onblur="hidehelp('#advisorHelp');"></input>
 			</div>	
+			<div id="advisorHelp" class="ui-body ui-body-a ui-corner-all">
+				<p id="error"></p>
+				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fr</p>
+			</div>
 			<div data-role="fieldcontain">
 				<label>Email Address:</label>
-				<input name="email" id="email"></input>
+				<input name="email" id="email" onfocus="checkhelp('#contactHelp'); showhelp('#contactHelp');" onblur="checkhelp('#contactHelp');"></input>
 			</div>	
 			<div data-role="fieldcontain">
 				<label>Phone Number:</label>
-				<input name="phone" id="phone"></input>
+				<input name="phone" id="phone" onfocus="checkhelp('#contactHelp'); showhelp('#contactHelp');" onblur="checkhelp('#contactHelp');"></input>
 			</div>	
 			<div data-role="fieldcontain">
 				<label>Extension:</label>
-				<input name="extension" id="extension"></input>
+				<input name="extension" id="extension" onfocus="checkhelp('#contactHelp'); showhelp('#contactHelp');" onblur="checkhelp('#contactHelp');"></input>
 			</div>	
+			<div id="contactHelp" class="ui-body ui-body-a ui-corner-all">
+				<p id="error" class="errorEmail"></p>
+				<p id="error" class="errorPhone"></p>
+				<p id="error" class="errorExtension"></p>
+				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fr</p>
+			</div>
 			<div data-role="fieldcontain">
 				<label>Event Description:</label>
-				<textarea name="description" id="desc" maxlength="500" style="height: 200px !important; resize: none;"></textarea>
+				<textarea name="description" id="desc" maxlength="500" style="height: 200px !important; resize: none;" onfocus="checkhelp('#descHelp'); showhelp('#descHelp');" onblur="checkhelp('#descHelp');"></textarea>
 			</div>	
 			<div data-role="fieldcontain">
 				<label>Event Date:</label>
-				<input type="date" id="date" name="date"></input>
+				<input type="date" id="date" name="date" onfocus="checkhelp('#descHelp'); showhelp('#descHelp');" onblur="checkhelp('#descHelp');"></input>
 			</div>	
 			<div data-role="fieldcontain">
 				<label>Event Time:</label>
-				<input type="time" id="time" name="time"></input>
+				<input type="time" id="time" name="time" onfocus="checkhelp('#descHelp'); showhelp('#descHelp');" onblur="checkhelp('#descHelp');"></input>
 			</div>	
+			<div id="descHelp" class="ui-body ui-body-a ui-corner-all">
+				<p id="error" class="errorDesc"></p>
+				<p id="error" class="errorDate"></p>
+				<p id="error" class="errorTime"></p>
+				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fr</p>
+			</div>
 			<div data-role="fieldcontain">
 				<label>On or Off Campus?:</label>
-				<fieldset data-role="controlgroup">
+				<fieldset data-role="controlgroup" id="onoffcampus" onclick="hidehelp(onoffHelp)">
 				    <label for="oncampus">On Campus</label>
 				    <input type="radio" name="onoff" id="oncampus" value="on">
 				    <label for="offcampus">Off Campus</label>
 				    <input type="radio" name="onoff" id="offcampus" value="off">
 				</fieldset>
 			</div>
+			<div id="onoffHelp" class="ui-body ui-body-a ui-corner-all">
+				<p id="error"></p>
+				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fr</p>
+			</div>			
 			<div data-role="fieldcontain" id="onBuilding">
 				<label>Building:</label>
-			   <select name="onbuilding" id="building">
+				<select name="onbuilding" id="building" onfocus="checkhelp('#onCampusHelp'); showhelp('#onCampusHelp')" onblur="checkhelp('#onCampusHelp');">
 			   		<option value="empty">&nbsp</option>
 			        <option value="westpenn">West Penn Building (WP)</option>
 			        <option value="academic">Academic Hall (AH)</option>
@@ -84,37 +116,38 @@
 			        <option value="uc">University Center (UC)</option>			   
 			        <option value="park">Village Park</option>
 			        <option value="playhouse">Pittsburgh Playhouse</option>			   
-
 			    </select>
 			</div>	
 			<div data-role="fieldcontain" id="onRoom">
 				<label>Room:</label>
-				<input name="onroom" id="room"></input>
+				<input name="onroom" id="room" onfocus="checkhelp('#onCampusHelp'); showhelp('#onCampusHelp')" onblur="checkhelp('#onCampusHelp');"></input>
 			</div>
 			<div id="onCampusHelp" class="ui-body ui-body-a ui-corner-all">
+				<p id="error" class="errorBuilding"></p>
+				<p id="error" class="errorRoom"></p>								
 				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fr</p>
 			</div>
 			<div data-role="fieldcontain" id="offName">
 				<label>Location Name:</label>
-				<input name="offname"></input>
+				<input name="offname" id="location" onfocus="checkhelp('#offCampusHelp'); showhelp('#offCampusHelp')" onblur="checkhelp('#offCampusHelp');"></input>
 			</div>	
 			<div data-role="fieldcontain" id="address1">
 				<label>Address 1:</label>
-				<input name="address1" id="address1input"></input>
+				<input name="address1" id="address1input" onfocus="checkhelp('#offCampusHelp'); showhelp('#offCampusHelp')" onblur="checkhelp('#offCampusHelp');"></input>
 			</div>	
-			<div data-role="fieldcontain" id="address2">
+			<div data-role="fieldcontain" id="address2" onfocus="checkhelp('#offCampusHelp'); showhelp('#offCampusHelp')" onblur="checkhelp('#offCampusHelp');">
 				<label>Address 2:</label>
-				<input name="address2" id="address2input"></input>
+				<input name="address2" id="address2input" onfocus="checkhelp('#offCampusHelp'); showhelp('#offCampusHelp')" onblur="checkhelp('#offCampusHelp');"></input>
 			</div>	
-			<div data-role="fieldcontain" id="city">
+			<div data-role="fieldcontain" id="city" onfocus="checkhelp('#offCampusHelp'); showhelp('#offCampusHelp')" onblur="checkhelp('#offCampusHelp');">
 				<label>City:</label>
-				<input name="city" id="cityinput"></input>
+				<input name="city" id="cityinput" onfocus="checkhelp('#offCampusHelp'); showhelp('#offCampusHelp')" onblur="checkhelp('#offCampusHelp');"></input>
 			</div>	
-			<div data-role="fieldcontain" id="state">
+			<div data-role="fieldcontain" id="state" onfocus="checkhelp('#offCampusHelp'); showhelp('#offCampusHelp')" onblur="checkhelp('#offCampusHelp');">
 				<label>State:</label>
-				<input name="state" id="stateinput"></input>
+				<input name="state" id="stateinput" onfocus="checkhelp('#offCampusHelp'); showhelp('#offCampusHelp')" onblur="checkhelp('#offCampusHelp');"></input>
 			</div>	
-			<div data-role="fieldcontain" id="zip">
+			<div data-role="fieldcontain" id="zip" onfocus="checkhelp('#offCampusHelp'); showhelp('#offCampusHelp')" onblur="checkhelp('#offCampusHelp');">
 				<label>Zipcode:</label>
 				<input name="zip" id="zipinput"></input>
 			</div>	
@@ -123,7 +156,7 @@
 			</div>
 			<div data-role="fieldcontain">
 				<label>Attendence Limit?:</label>
-				<fieldset data-role="controlgroup">
+				<fieldset data-role="controlgroup" id="attendSet">
 				    <label for="attendyes">Yes</label>
 				    <input type="radio" name="attend" id="attendyes" value="on"">
 				    <label for="attendno">No</label>
@@ -132,16 +165,18 @@
 			</div>
 			<div data-role="fieldcontain" id="limit">
 				<label for="slider">Attendence Limit:</label>
-				<input type="range" name="slider" id="slider" value="0" min="10" max="300">
+				<input type="range" name="slider" id="slider" value="0" min="0" max="300">
 			</div>
 			<div id="attendHelp" class="ui-body ui-body-a ui-corner-all">
+				<p id="error"></p>
 				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fr</p>
 			</div>
 			<div data-role="fieldcontain">
 				<label for="file">Upload Pictures:</label>
 				<input type="file" name="file" id="file" value="">
 			</div>
-			<button type="submit" onclick="newevent();">Submit Event</button>		
+			<button type="button" onclick="errorcheck()">Submit Event</button> <!-- newevent(); -->		
+			<button onclick="location.reload();">Reset Form</button>
 			<button>Discard Event</button>
 		</form>
 	</div>

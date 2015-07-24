@@ -8,6 +8,7 @@
 	$qObj = new MyCode();
 	$qObj->setConn($obj->getConn());
 	
+	$type=$_GET["type"];
 	$event = $_GET["event"];
 	$org = $_GET["org"];
 	$organizer = $_GET["organizer"];
@@ -23,9 +24,23 @@
 	$address2 =  $_GET["address2"];
 	$city =  $_GET["city"];
 	$zip =  $_GET["zip"];
+	$loc = $_GET["loc"];
 	
-	$q = "SET search_path TO pointevent;
-		INSERT INTO events VALUES(DEFAULT, '$event', '$org', '$organizer', '$email', '$phone', '$extension','$desc','$date','$time','6/25/2015','9/22/2015','$building','$room',DEFAULT,'$address1','$address2','$city','$zip', 50, 25)";
+	if ($type = "1") {
+		$q = "SET search_path TO pointevent;
+		INSERT INTO events VALUES(DEFAULT, '$event', '$org', '$organizer', '$email', '$phone', '$extension','$desc','$date','$time','6/25/2015','9/22/2015','$building','$room',DEFAULT,'$address1','$address2','$city','$zip', 50, 25)";		
+	}
+	if ($type = "2") {
+		
+	}
+	if ($type = "3") {
+	
+	}
+	if ($type = "4") {
+	
+	}	
+	//$q = "SET search_path TO pointevent;
+	//	INSERT INTO events VALUES(DEFAULT, '$event', '$org', '$organizer', '$email', '$phone', '$extension','$desc','$date','$time','6/25/2015','9/22/2015','$building','$room',DEFAULT,'$address1','$address2','$city','$zip', 50, 25)";
 	
 	$qObj->setQuery($q);
 	$qObj->executeQuery($q);
