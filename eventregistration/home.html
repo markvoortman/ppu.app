@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>PointEvent - What's happening at Point Park?</title>
+	<link href="pointevent.css" rel="stylesheet" type="text/css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
+	<link rel="stylesheet" href="animate.css">
+	<script src="pointevent.js"></script>
+	<script src="unslider.min.js"></script>
+
+<script>
+	$(document).ready(function() {
+		var target = "http://bus2.pointpark.edu/~fmali/pointevent/test.php"; 
+		$.getJSON(target, function(results) {
+			$.each(results, function(i, key) { 
+				$("#eventtable > tbody").append("<tr><td>" + key.event + "</td><td>" + key.date + "</td><td>" + key.time + "</td><td>" + key.building +  "</td><td><button class='ui-btn'>View Event</button></td></tr>");
+			});
+		});					
+	});		
+</script>
+
+</head>
+<body>
+<header>
+	<div id="ppulogo">
+		<h1>Point</h1>
+		<h1>Event</h1>
+	</div>
+</header>
+	<h2 id="create">Explore and Create Events at Point Park</h2>	
+
+
+	<div id="newevent">
+
+	<div id="eventcontain">
+		<div class="banner">
+		    <ul>
+		        <!--  <li><img src="skyline.jpg" style="height: 300px; max-width: 100%;"></li>-->
+		        <li style="background-image: url(skyline.jpg); background-size: cover; background-position: center; background-repeat: no-repeat; height: 300px; max-width: 100%;"></li>
+		        <li style="background-image: url(class.jpg); background-size: cover; background-position: center; background-repeat: no-repeat; height: 300px; max-width: 100%;"></li> 
+		        <li style="background-image: url(village park.jpg); background-size: cover; background-position: center; background-repeat: no-repeat; height: 300px; max-width: 100%;"></li> 	     
+		        <li><img src="village park.jpg" style="height: 300px; max-width: 100%;"></li>
+		    </ul>
+		</div>	
+		
+		<div id="eventform">
+			<table data-role="table" class="ui-responsive" data-mode="reflow" id="eventtable" style="width: 100%">
+				<thead>	
+					<tr style="width: 20%;">
+						<th>Event</th>
+						<th>Date</th>
+						<th>Time</th>
+						<th>Location</th>
+						<th>View</th>
+					</tr>
+				</thead>
+			<tbody>
+			</tbody>
+			</table>
+		</div>
+		<button style="margin-bottom: 50px;" class="ui-btn" onclick="$.mobile.changePage('index.html',{allowSamePageTransition:true,reloadPage:false,changeHash:true,transition:'slide'	});">Create New Event</button>
+	</div>
+</div>
+</body>
+</html>	
