@@ -16,7 +16,7 @@
     NSMutableData *mutableData;
     NSInteger authSuccess;
 
-    #define URL            @"http://host22.cmps.pointpark.edu/test.php"  // change this URL
+    #define URL            @"http://pointevent.it.pointpark.edu/test.php"  // change this URL
     #define NO_CONNECTION  @"No Connection"
     #define NO_VALUES      @"Please enter parameter values"
 

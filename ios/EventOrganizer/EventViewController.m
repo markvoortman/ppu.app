@@ -22,7 +22,7 @@
 
 @implementation EventViewController {
     
-    #define URL @"http://host22.cmps.pointpark.edu/events.json"
+    #define URL @"http://pointevent.it.pointpark.edu/events.json"
 
 }
 
