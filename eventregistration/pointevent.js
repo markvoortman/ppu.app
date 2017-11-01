@@ -1,4 +1,13 @@
-$(document).ready(function() {
+function loadres() {
+		var target = "test.php"; 
+		$.getJSON(target, function(results) {
+			$.each(results, function(i, key) { 
+				$("#eventtable > tbody").append("<tr><td>" + key.event + "</td><td>" + key.date + "</td><td>" + key.time + "</td><td>" + key.building +  "</td><td><button class='ui-btn'>View Event</button></td></tr>");
+			});
+		});					
+};
+
+function hideallhelp() {
 	$("#eventHelp").hide();
 	$("#orgHelp").hide();
 	$("#advisorHelp").hide();
@@ -17,26 +26,31 @@ $(document).ready(function() {
 	$("#state").hide();
 	$("#zip").hide();
 	$("#limit").hide();
+}
+
+$(document).ready(function() {
+	hideallhelp();
 	
 	$('#oncampus').click(function() {
 		if($('#oncampus').is(':checked')) { 
 			checkhelp('#onCampusHelp'); 
 			oncampus();
-			$("#location").val(""); //.empty() doesn't work here?			
-			$("#address1input").empty();
-			$("#address2input").empty();
-			$("#cityinput").empty();
-			$("#stateinput").empty();
-			$("#zipinput").empty();
-			$("#locinput").empty();
+			$("#location").val("");		
+			$("#address1input").val("");
+			$("#address2input").val("");
+			$("#cityinput").val("");
+			$("#stateinput").val("");
+			$("#zipinput").val("");
+			$("#locinput").val("");
 		}
 	});
 	$('#offcampus').click(function() {
 		if($('#offcampus').is(':checked')) { 
 			checkhelp('#offCampusHelp');
 			offcampus();
-			$("#room").val(""); //.empty() doesn't work here?
-			$("#building").val(''); //Why doesn't this work?
+			$("#room").val("");
+			$("#building").val(0); //Why doesn't this work?
+			$("#building").selectmenu("refresh");
 		}
 	});
 	
@@ -188,7 +202,7 @@ function newevent() {
 	var desc = $("#desc").val();
 	var date = $("#date").val();
 	var time = $("#time").val();
-	var building = $("#building").val();
+	var building = $("#building").val(); //.text
 	var room = $("#room").val();
 	var address1 = $("#address1input").val();
 	var address2 = $("#address2input").val();
@@ -197,7 +211,7 @@ function newevent() {
 	var location = $("#location").val();
 	var limit = $("location").val();
 	
-	var target = "http://bus2.pointpark.edu/~fmali/pointevent/pointevent.php?type=1" + "&event=" + event + "&org=" + org + "&organizer=" + organizer + "&email=" + email + "&phone=" + phone +
+	var target = "pointevent.php?type=1" + "&event=" + event + "&org=" + org + "&organizer=" + organizer + "&email=" + email + "&phone=" + phone +
 		"&extension=" + extension + "&desc=" + desc + "&date=" + date + "&time=" + time + "&building=" + building + "&room=" + room + "&address1=" + address1 + "&address2=" + address2 +
 		"&city=" + city + "&zip=" + zip + "&limit" + limit; 
 	$.getJSON(target, function(results) {

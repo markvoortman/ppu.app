@@ -13,7 +13,7 @@
 
 <script>
 	$(document).ready(function() {
-		var target = "http://bus2.pointpark.edu/~fmali/pointevent/test.php"; 
+		var target = "test.php"; 
 		$.getJSON(target, function(results) {
 			$.each(results, function(i, key) { 
 				$("#eventtable > tbody").append("<tr><td>" + key.event + "</td><td>" + key.date + "</td><td>" + key.time + "</td><td>" + key.building +  "</td><td><button class='ui-btn'>View Event</button></td></tr>");
@@ -24,6 +24,9 @@
 
 </head>
 <body>
+<script>
+	loadres();
+</script>
 <header>
 	<div id="ppulogo">
 		<h1>Point</h1>

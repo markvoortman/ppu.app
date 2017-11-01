@@ -2,10 +2,10 @@
 class MyConnection {
 
    private $conn = null;
-   private $host ="bus1.pointpark.edu";
-   private $user = "fmali";
-   private $psw = "cmps322";
-   private $db = "fmali";
+   private $host ="pointevent.it.pointpark.edu";
+   private $user = "pgsql";
+   private $psw = "12345";
+   private $db = "pointevent";
    private $schema = "pointevent";
    private $name = "Default";
    private $query = null;

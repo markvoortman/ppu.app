@@ -12,6 +12,7 @@
 	<script src="unslider.min.js"></script>
 </head>
 <body>
+
 <header>
 	<div id="ppulogo">
 		<h1>Point</h1>
@@ -176,9 +177,12 @@
 				<input type="file" name="file" id="file" value="">
 			</div>
 			<button type="button" onclick="errorcheck()">Submit Event</button> <!-- newevent(); -->		
-			<button onclick="location.reload();">Reset Form</button>
-			<button>Discard Event</button>
+			<!--  <button onclick="location.reload();">Reset Form</button>-->
+			<a href="home.html"><button>Show All Events</button></a>
 		</form>
+		<script>
+			hideallhelp();
+		</script>
 	</div>
 </div>
 </body>
